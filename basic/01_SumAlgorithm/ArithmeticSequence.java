@@ -14,6 +14,7 @@ public class ArithmeticSequence {
         for (int i = 1; i <= 20; i++) { // 주어진 범위
             if (i % 2 == 1){ //주어진 조건(필터링): 홀수
                 sum += i; // SUM
+                System.out.print(i+ " "); // SEQUENCE -> Arithmetic Sequence
             }            
         }
         //[3] Output
