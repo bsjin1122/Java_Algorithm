@@ -16,9 +16,8 @@ public class SumAlgorithm {
             }   
         }
         
-        
         //[3] Output
         System.out.println(scores.length + "명의 점수 중 80점 이상의 총점: " + sum);
     }
-    
+
 }
