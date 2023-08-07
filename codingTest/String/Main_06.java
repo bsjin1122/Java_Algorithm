@@ -13,6 +13,7 @@ public class Main_06 {
         String answer = "";
         for (int i = 0; i < str.length(); i++) {
 //            System.out.println(str.charAt(i) + " " + i + " "+ str.indexOf(str.charAt(i)));
+            // charAt: 문자열(String)에서 특정 인덱스에 위치한 문자를 반환하는 메서드
             if(str.indexOf(str.charAt(i)) == i){
                 answer += str.charAt(i);
             }
