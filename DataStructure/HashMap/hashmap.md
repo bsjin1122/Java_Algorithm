@@ -43,3 +43,14 @@ ex) HashMap<String, String> h3 = new HashMap<String, String>(20, 0.8);
 3) Set<Map.Entry<K, V>> entrySet(): 모든 key-value 맵핑 데이터를 가진 Set 데이터를 반환
 4) Set<K> keySet() : 모든 key 값을 가진 Set 데이터를 반환
 5) Collection<V> values() : 모든 value값을 가진 Collection 데이터를 반환
+
+---
+# HashSet
+- 중복된 요소를 허용하지 않는 집합(Set)을 구현한 클래스 
+- 요소를 저장할 때 순서가 정해져있지 않다. 즉, 요소가 저장된 순서를 보장하지 않는다. 
+- 내부적으로 HashTable을 사용하여 요소를 관리, 해시 함수를 사용하여 요소를 검색 및 삽입한다. 
+- 주로 `중복된 요소를 제거, 순서가 중요하지 않은 경우에 사용`
+
+# 해시
+해시함수를 사용하여 데이터를 일정한 길이의 문자열로 변환하는 프로세스를 나타낸다.
+이 문자열은 데이터의 고유한 표현을 생성하며, 해시 함수를 통해 데이터를 빠르게 검색할 수 있다.
