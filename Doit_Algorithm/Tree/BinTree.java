@@ -45,15 +45,53 @@ public class BinTree<K, V> {
         comparator = c;
     }
 
-    private int comp(K key1, K key2){
-        return (comparator == null) ? ((Comparable<K>)key1).compareTo(key2) : comparator.compare(key1, key2);
+    private int comp(K key1, K key2) {
+        return (comparator == null) ? ((Comparable<K>) key1).compareTo(key2) : comparator.compare(key1, key2);
         /* key 1 > key2 면 양수, 반대면 음수, key1 == key2 면 0
          1. ((Comparable<K>)key1).compareTo(key2)-> Bintree()로 이진검색트리를 생성한 경우, comparator의 값은 널, 비교자는 설정되어있지 않다.
          2. comparator.compare(key1, key2) -> null이 아닐 경우, comparator에 비교자가 설정되어 있다.
         */
     }
+    // 이진 검색트리에서 원하는 값을 찾으려면, 이런 방법으로 루트부터 시작해 현재 선택한 노드의 키 값과 목표하는 값을 비교하면서 왼쪽, 오른쪽으로 검색을 진행하면 된다.
 
+    public V search(K key){
+        Node<K, V> p = root;
+        while(true){
+            if(p == null)
+                return null;
+            int cond = comp(key, p.getKey());
+            if(cond == 0) // 같으면
+                return p.getValue(); // 검색 성공
+            else if(cond < 0)
+                p = p.left; // 왼쪽 서브 트리에서 검색
+            else  // key쪽이 크면
+                p = p.right; // 오른쪽 서브 트리에서 검색
+        }
+    }
 
-
+    // add 주의점: 노드를 삽입한 다음에 트리의 형태가 이진 검색 트리의 조건을 유지해야한다는 점이다.
+    // 노드를 삽입할 때에는 알맞은 위치에 삽입해야 한다.
+    private void addNode(Node<K, V>node, K key, V data){
+        int cond = comp(key, node.getKey());
+        if(cond == 0)
+            return; // 검색트리에 이미 있음-> 종료
+        else if(cond < 0){
+            if(node.left == null)
+                node.left = new Node<K, V>(key, data, null, null);
+            else
+                addNode(node.left, key, data); //왼쪽 서브트리에 주목
+        }else {
+            if(node.right == null)
+                node.right = new Node<K, V>(key, data, null, null);
+            else
+                addNode(node.right, key, data);  //오른쪽 서브트리에 주목
+        }
+    }
+    public void add(K key, V data){
+        if(root == null)
+            root = new Node<K, V>(key, data, null, null); // root가 null인 경우
+        else
+            addNode(root, key, data);
+    }
 }
 
