@@ -1,9 +1,8 @@
-package TestProgrammers.Baekjoon;
+package TestProgrammers.Baekjoon.package1;
 
 import java.io.*;
-import java.util.*;
 
-public class Boj_9093 { // 단어 뒤집기
+public class Boj_200_9093 { // 단어 뒤집기
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
