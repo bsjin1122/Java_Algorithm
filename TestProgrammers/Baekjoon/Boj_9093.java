@@ -3,21 +3,34 @@ package TestProgrammers.Baekjoon;
 import java.io.*;
 import java.util.*;
 
-public class Boj_9093 {
+public class Boj_9093 { // 단어 뒤집기
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int n = Integer.parseInt(br.readLine());
 
-        // Stack 객체 생성.
-        Stack<Integer> stack = new Stack<>();
 
-        for(int i=0; i < n; i++){
-
+        for(int i = 0; i < n; i++){
+            String str = br.readLine();
+            String reversedString = reverseWords(str);
+            bw.write(reversedString +"\n");
         }
 
-
-
+        bw.flush();
+        bw.close();
+        br.close();
     }
+
+    public static String reverseWords(String str){
+        String[] splitArray = str.split(" ");
+        StringBuilder reversedString = new StringBuilder();
+
+        for(String word: splitArray){
+            StringBuilder reversedWord = new StringBuilder(word).reverse();
+            reversedString.append(reversedWord).append(" "); // 뒤집은 단어를 결과 문자열에 추가
+        }
+        return reversedString.toString().trim(); // 문자열 앞뒤 공백 제거
+    }
+
 }
